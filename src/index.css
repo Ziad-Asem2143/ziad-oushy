@@ -1,0 +1,57 @@
+@import "tailwindcss";
+
+/* ===== WorkFlow design tokens ===== */
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+  /* Primary (blue) */
+  --color-primary-50: #eff6ff;
+  --color-primary-100: #dbeafe;
+  --color-primary-200: #bfdbfe;
+  --color-primary-300: #93c5fd;
+  --color-primary-400: #60a5fa;
+  --color-primary-500: #3b82f6;
+  --color-primary-600: #2563eb;
+  --color-primary-700: #1d4ed8;
+  --color-primary-800: #1e40af;
+  --color-primary-900: #1e3a8a;
+
+  /* Surfaces & text */
+  --color-app: #f3f4f6;      /* page background (light gray) */
+  --color-card: #ffffff;     /* cards */
+  --color-line: #e5e7eb;     /* subtle borders */
+  --color-ink: #1f2937;      /* main text (dark gray) */
+  --color-ink-soft: #6b7280; /* secondary text */
+
+  --radius-card: 0.75rem;
+  --shadow-card: 0 1px 2px 0 rgb(0 0 0 / 0.04), 0 1px 3px 0 rgb(0 0 0 / 0.06);
+  --shadow-pop: 0 10px 30px -8px rgb(15 23 42 / 0.2);
+}
+
+/* ===== Base styles ===== */
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-app font-sans text-sm text-ink antialiased;
+    margin: 0;
+    min-width: 320px;
+  }
+
+  h1 { @apply text-2xl font-semibold tracking-tight text-ink; }
+  h2 { @apply text-xl font-semibold text-ink; }
+  h3 { @apply text-base font-semibold text-ink; }
+
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-primary-500;
+  }
+}
+
+/* ===== Reusable component classes ===== */
+@layer components {
+  .card {
+    @apply rounded-card border border-line bg-card shadow-card;
+  }
+}
